@@ -1,0 +1,30 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+function Navbar() {
+  const navigate = useNavigate();
+
+  return (
+    <nav className="sticky top-0 bg-white shadow-md z-50 px-4 py-3 flex justify-between items-center">
+      <h1 className="text-xl font-bold cursor-pointer" onClick={() => navigate("/")}>
+        Fatura Takip Sistemi
+      </h1>
+      <div className="space-x-4">
+        <button
+          onClick={() => navigate("/")}
+          className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition"
+        >
+          Fatura Listesi
+        </button>
+        <button
+          onClick={() => navigate("/add")}
+          className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 transition"
+        >
+          Yeni Fatura Ekle
+        </button>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

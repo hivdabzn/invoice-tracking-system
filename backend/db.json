@@ -1,0 +1,28 @@
+{
+  "invoices": [
+    {
+      "id": "fa38",
+      "title": "fjfzuf",
+      "amount": "555",
+      "date": "2025-06-21"
+    },
+    {
+      "id": "9e6a",
+      "title": "peri",
+      "amount": "33555555",
+      "date": "2025-05-29"
+    },
+    {
+      "id": "93c3",
+      "title": "aaaa",
+      "amount": 4,
+      "date": "2025-06-14"
+    },
+    {
+      "id": "0140",
+      "title": "fgh",
+      "amount": 234,
+      "date": "2025-06-15"
+    }
+  ]
+}
