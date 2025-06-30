@@ -151,5 +151,5 @@ Projeyi tamamladıktan sonra GitHub/GitLab bağlantınızı paylaşmanız yeterl
 
 ## 👩‍💻 Geliştirici
 
-Bu proje **[Adınız Soyadınız]** tarafından geliştirilmiştir.  
-İletişim: `e-posta@adresiniz.com`
+Bu proje **[Hivda Bozan]** tarafından geliştirilmiştir.  
+
