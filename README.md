@@ -1,71 +1,155 @@
-# Invoice Tracking System
+# 📦 Fatura Takip Sistemi – A Plus Engineering Vaka Çalışması
 
-Bu proje, React + TypeScript + TailwindCSS kullanılarak geliştirilmiş, JSON Server ile backend simülasyonu yapılan, faturaların CRUD (Create, Read, Update, Delete) işlemlerini yapabildiğiniz bir fatura takip uygulamasıdır. Ayrıca faturaları PDF olarak indirmenize imkan verir.
+Bu proje, A Plus Engineering için geliştirilen uçtan uca bir **Fatura Takip Sistemi**dir. Kullanıcıların fatura **oluşturmasına**, **güncellemesine**, **görüntülemesine** ve **silmesine** olanak tanır.
 
 ---
 
-## Özellikler
+## 🚀 Teknoloji Yığını
 
-- Fatura listeleme
+### 🔧 Backend
+- **Dil:** TypeScript
+- **Web Framework:** [Hono](https://hono.dev/)
+- **ORM:** [Drizzle](https://orm.drizzle.team/)
+- **Veritabanı:** PostgreSQL
+
+### 🎨 Frontend
+- **Build Aracı:** Vite
+- **Kütüphane:** React
+- **Stil:** TailwindCSS
+
+---
+
+## 📌 Özellikler
+
 - Yeni fatura ekleme
-- Fatura düzenleme
+- Mevcut faturayı düzenleme
+- Tüm faturaları görüntüleme
+- Belirli bir faturayı ID ile görüntüleme
 - Fatura silme
-- Toplam tutarı hesaplama ve gösterme
-- Fatura listesini PDF olarak indirme
-- React Router ile sayfa yönlendirmeleri
-- TailwindCSS ile responsive ve şık tasarım
-- JSON Server ile basit backend API simülasyonu
 
 ---
 
-## Teknolojiler
+## 🧾 Fatura Veri Modeli
 
-- React 18 + TypeScript
-- React Router Dom
-- TailwindCSS
-- JSON Server (fake REST API)
-- jsPDF + html2canvas (PDF oluşturma)
-- Vercel (proje yayınlama)
+Her bir fatura aşağıdaki alanları içerir:
+
+```ts
+{
+  id: string; // UUID
+  createdAt: Date;
+  customerNo: number;
+  description: string;
+}
+```
 
 ---
 
-## Kurulum ve Çalıştırma
+## ⚙️ Kurulum Adımları
 
-### 1. Projeyi klonla
+### 1️⃣ Projeyi Klonlayın
 
 ```bash
-git clone https://github.com/hivdabzn/invoice-tracking-system.git
+git clone https://github.com/kullaniciadiniz/invoice-tracking-system.git
 cd invoice-tracking-system
+```
 
+---
 
+### 2️⃣ Backend Kurulumu
 
- Backend kurulumu (JSON Server)
+#### Gerekli Paketleri Yükleyin
 
--cd backend
+```bash
+cd backend
 npm install
-npm run backend
+```
 
-Frontend kurulumu
+#### Ortam Değişkenlerini Ayarlayın
 
--cd ../frontend
-npm install
+`backend/` klasöründe `.env` dosyası oluşturun:
+
+```
+DATABASE_URL=postgresql://kullanici:sifre@localhost:5432/invoicedb
+PORT=3000
+```
+
+#### Veritabanı Migration'larını Yürütün (Drizzle)
+
+```bash
+npx drizzle-kit push
+```
+
+#### Backend Sunucusunu Başlatın
+
+```bash
 npm run dev
+```
 
+---
+
+### 3️⃣ Frontend Kurulumu
+
+```bash
+cd ../frontend
+npm install
+```
+
+#### Frontend’i Başlatın
+
+```bash
+npm run dev
+```
+
+Uygulama şu adreste çalışacaktır: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## ✅ API Uç Noktaları (Hono)
+
+| Yöntem | Endpoint           | Açıklama                 |
+|--------|--------------------|--------------------------|
+| GET    | `/invoices`        | Tüm faturaları getirir   |
+| GET    | `/invoices/:id`    | Belirli faturayı getirir |
+| POST   | `/invoices`        | Yeni fatura oluşturur    |
+| PUT    | `/invoices/:id`    | Faturayı günceller       |
+| DELETE | `/invoices/:id`    | Faturayı siler           |
+
+---
+
+## 📄 Klasör Yapısı
+
+```
 invoice-tracking-system/
-├── backend/          # JSON Server backend
-│   ├── db.json       # Örnek fatura verileri
-│   └── package.json
-├── frontend/         # React frontend
+│
+├── backend/
 │   ├── src/
-│   │   ├── pages/
-│   │   │   ├── InvoiceList.tsx
-│   │   │   ├── AddInvoice.tsx
-│   │   │   └── EditInvoice.tsx
-│   │   ├── App.tsx
-│   │   └── index.tsx
-│   ├── tailwind.config.js
-│   └── package.json
-└── vercel.json       # Vercel SPA yönlendirmesi için config
+│   └── drizzle.config.ts
+│   └── .env.example
+│
+├── frontend/
+│   ├── src/
+│   ├── tailwind.config.ts
+│   └── index.html
+```
 
+---
 
+## 📝 Notlar
 
+- PostgreSQL'in bilgisayarınızda kurulu ve çalışıyor olması gerekmektedir.
+- TailwindCSS yapılandırması `tailwind.config.ts` üzerinden hazır olarak gelmektedir.
+- Backend ve frontend farklı portlarda aynı anda çalıştırılabilir.
+
+---
+
+## 🔗 Teslimat
+
+Projeyi tamamladıktan sonra GitHub/GitLab bağlantınızı paylaşmanız yeterlidir:  
+👉 `https://github.com/kullaniciadiniz/invoice-tracking-system`
+
+---
+
+## 👩‍💻 Geliştirici
+
+Bu proje **[Adınız Soyadınız]** tarafından geliştirilmiştir.  
+İletişim: `e-posta@adresiniz.com`
